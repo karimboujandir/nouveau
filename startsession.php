@@ -10,7 +10,7 @@ session_start();
 // paramètres de connexion a la bd
 $dsn = 'mysql:host=localhost;dbname=coolchat';
 $username = 'root';
-$password = 'karim34500';
+$password = 'adrar';
 
 // Options de configuration pour la connexion PDO
 $options = array(
@@ -27,7 +27,7 @@ try {
 function getUserByEmail($email) {
     global $dbh;
     
-    $sql = "SELECT * FROM Inscrit WHERE email = ?";
+    $sql = "SELECT * FROM inscrit WHERE email = ?";
     $stmt = $dbh->prepare($sql);
     $stmt->execute([$email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);

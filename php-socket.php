@@ -1,7 +1,10 @@
 <?php
-define('HOST_NAME', "localhost");
+define('HOST_NAME', "192.168.191.121");
 define('PORT', "8090");
 $null = NULL;
+
+require_once("class.chathandler.php");
+$chatHandler = new ChatHandler();
 
 // Création d'une ressource de socket
 $socketResource = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
@@ -53,7 +56,7 @@ while (true) {
 			$socketMessage = $chatHandler->unseal($socketData);
 			// Décodage du message JSON
 			$messageObj = json_decode($socketMessage);
-
+	
 			// Création du message à afficher dans la boîte de chat
 			$chat_box_message = $chatHandler->createChatBoxMessage($messageObj->chat_user, $messageObj->chat_message);
 			// Envoi du message à tous les clients connectés

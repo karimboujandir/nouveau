@@ -12,7 +12,7 @@ if (!isset($_GET['id'])) {
 $id = $_GET['id'];
 
 // Vérifier si l'utilisateur existe 
-$sql = "SELECT * FROM Inscrit WHERE email = :email";
+$sql = "SELECT * FROM inscrit WHERE email = :email";
 $stmt = $dbh->prepare($sql);
 $stmt->bindParam(':email', $id);
 $stmt->execute();
@@ -26,7 +26,7 @@ if (!$inscrit) {
 // Vérifier si le formulaire de confirmation de suppression a été soumis
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   // Préparer la requête SQL pour supprimer 
-  $sql = "DELETE FROM Inscrit WHERE email = :email";
+  $sql = "DELETE FROM inscrit WHERE email = :email";
   $stmt = $dbh->prepare($sql);
   $stmt->bindParam(':email', $id);
 

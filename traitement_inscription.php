@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $statut = '1';
 
     // On prépare la requête SQL pour insérer les données dans la base de données
-    $sql = "INSERT INTO Inscrit (pseudo, password, email) 
+    $sql = "INSERT INTO inscrit (pseudo, password, email) 
             VALUES (:pseudo, :password, :email)";
     $stmt = $dbh->prepare($sql);
     $stmt->bindParam(':pseudo', $pseudo);
